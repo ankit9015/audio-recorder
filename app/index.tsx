@@ -6,7 +6,7 @@ import {
 	useMessage,
 } from "@/context/messageContext";
 import {
-	ScrollView,
+	FlatList,
 	StyleSheet,
 	Text,
 	View,
@@ -20,6 +20,13 @@ const App = () => {
 	const sendMessage = (message: Partial<MessageModel>) => {
 		addMessage(message);
 	};
+	const emptyComponent = (
+		<View style={styles.introMessage}>
+			<Text style={styles.introText}>
+				Hi there! 👋 My name is Tratoli. How can I assist you today?
+			</Text>
+		</View>
+	);
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.header}>
@@ -27,22 +34,18 @@ const App = () => {
 				<Text style={styles.headerTitle}>Travel GPT</Text>
 			</View>
 
-			<ScrollView style={styles.chatArea}>
-				{messages.length == 0 && (
-					<View style={styles.introMessage}>
-						<Text style={styles.introText}>
-							Hi there! 👋 My name is Tratoli. How can I assist you today?
-						</Text>
-					</View>
-				)}
-
-				{messages.map((message, index) => (
+			<FlatList
+				data={messages}
+				renderItem={({ item }) => (
 					<Message
-						key={message.id}
-						message={message}
+						key={item.id}
+						message={item}
 						remove={removeMessage}></Message>
-				))}
-			</ScrollView>
+				)}
+				keyExtractor={(item) => item.id.toString()}
+				contentContainerStyle={styles.chatArea}
+				ListEmptyComponent={emptyComponent}
+			/>
 			<View style={{ margin: 12 }}>
 				<MessageEditor sendMessage={sendMessage}></MessageEditor>
 			</View>
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
 	chatArea: {
 		flex: 1,
 		padding: 10,
+		gap: 20,
 	},
 	introMessage: {
 		backgroundColor: "transparent",
@@ -91,48 +95,5 @@ const styles = StyleSheet.create({
 		color: "#fff",
 		fontSize: 16,
 		textAlign: "center",
-	},
-	options: {
-		flexDirection: "row",
-		flexWrap: "wrap",
-		marginBottom: 20,
-	},
-	optionButton: {
-		backgroundColor: "#4CAF50",
-		padding: 10,
-		borderRadius: 8,
-		marginRight: 5,
-		marginBottom: 5,
-	},
-	optionText: {
-		color: "#fff",
-		fontSize: 14,
-	},
-	inputArea: {
-		flexDirection: "row",
-		alignItems: "center",
-		padding: 10,
-		backgroundColor: "#333",
-		borderRadius: 20,
-		margin: 10,
-	},
-	textInput: {
-		flex: 1,
-		color: "#fff",
-		fontSize: 16,
-	},
-	sendButton: {
-		marginLeft: 10,
-	},
-	recordingControls: {
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "space-around",
-		padding: 10,
-	},
-	recordButton: {
-		backgroundColor: "red",
-		padding: 15,
-		borderRadius: 30,
 	},
 });
