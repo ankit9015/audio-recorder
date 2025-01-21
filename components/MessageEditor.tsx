@@ -69,7 +69,7 @@ const MessageEditor: React.FC<MessageEditorProps> = ({ sendMessage }) => {
 							/>
 						)}
 						<TouchableOpacity style={styles.sendButton} onPress={send}>
-							<Ionicons name="arrow-up-circle" size={32} color="#fff" />
+							<Ionicons name="arrow-up-circle" size={32} color="#000" />
 						</TouchableOpacity>
 					</>
 				)}
@@ -81,19 +81,18 @@ const MessageEditor: React.FC<MessageEditorProps> = ({ sendMessage }) => {
 const styles = StyleSheet.create({
 	container: {
 		padding: 10,
-		backgroundColor: "#444",
+		backgroundColor: "#dbdbdb",
 		borderRadius: 10,
 		gap: 5,
 	},
 	inputArea: {
 		flexDirection: "row",
 		alignItems: "center",
-		gap: 5,
 	},
 	textInput: {
 		flex: 1,
-		backgroundColor: "#555",
-		color: "#fff",
+		backgroundColor: "#f2f2f2",
+		color: "#000",
 		padding: 10,
 		borderRadius: 5,
 		marginHorizontal: 10,

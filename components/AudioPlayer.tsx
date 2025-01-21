@@ -125,7 +125,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioUri }) => {
 				<Ionicons
 					name={isPlaying ? "pause-circle" : "play-circle"}
 					size={36}
-					color="#fff"
+					color="#000"
 				/>
 			</TouchableOpacity>
 
@@ -137,8 +137,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioUri }) => {
 					progress={duration ? position / duration : 0}
 					width={null}
 					height={4}
-					color="white"
-					unfilledColor="#444"
+					color="#000"
+					unfilledColor="#333"
 					borderColor="transparent"
 				/>
 			</View>
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
 	audioPlayer: {
 		flexDirection: "row",
 		alignItems: "center",
-		backgroundColor: "#333",
+		backgroundColor: "#f2f2f2",
 		padding: 5,
 		borderRadius: 10,
 	},
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
 		gap: 5,
 	},
 	progressText: {
-		color: "#fff",
+		color: "#000",
 		fontSize: 12,
 	},
 });

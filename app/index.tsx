@@ -5,12 +5,7 @@ import {
 	MessageProvider,
 	useMessage,
 } from "@/context/messageContext";
-import {
-	FlatList,
-	StyleSheet,
-	Text,
-	View,
-} from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AudioProvider } from "@/context/audioContext";
@@ -31,7 +26,7 @@ const App = () => {
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.header}>
-				<Ionicons name="menu" size={24} color="#fff" />
+				<Ionicons name="menu" size={24} color="#000" />
 				<Text style={styles.headerTitle}>Travel GPT</Text>
 			</View>
 
@@ -67,7 +62,7 @@ export default function Index() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#121212",
+		backgroundColor: "#fff",
 	},
 	header: {
 		flexDirection: "row",
@@ -75,7 +70,7 @@ const styles = StyleSheet.create({
 		padding: 15,
 	},
 	headerTitle: {
-		color: "#fff",
+		color: "#000",
 		fontSize: 18,
 		fontWeight: "bold",
 		position: "absolute",
@@ -95,7 +90,7 @@ const styles = StyleSheet.create({
 		width: "70%",
 	},
 	introText: {
-		color: "#fff",
+		color: "#000",
 		fontSize: 16,
 		textAlign: "center",
 	},

@@ -43,12 +43,12 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({
 				<TouchableOpacity
 					onPress={handleRecordPress}
 					style={styles.recordButton}>
-					<Ionicons name="mic" size={24} color="#fff" />
+					<Ionicons name="mic" size={24} color="#000" />
 				</TouchableOpacity>
 			)}
 			{isRecording && (
 				<TouchableOpacity onPress={handleRecordPress} style={styles.stopButton}>
-					<Ionicons name="stop-circle" size={24} color="#fff" />
+					<Ionicons name="stop-circle" size={24} color="#000" />
 				</TouchableOpacity>
 			)}
 		</View>

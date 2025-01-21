@@ -37,7 +37,7 @@ const Message: React.FC<MessageProps> = ({ message, remove }) => {
 const styles = StyleSheet.create({
 	container: {
 		padding: 10,
-		backgroundColor: "#444",
+		backgroundColor: "#dbdbdb",
 		borderRadius: 10,
 		flexDirection: "row",
 		alignItems: "center",
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 		flexGrow: 1,
 	},
 	messageText: {
-		color: "#fff",
+		color: "#000",
 		padding: 10,
 	},
 	deleteButton: {
