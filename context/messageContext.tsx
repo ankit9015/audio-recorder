@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-export interface Message {
+export interface MessageModel {
 	id: number | undefined;
 	text: string | undefined;
 	audioUri: string | undefined;
 }
 
 interface MessageContextType {
-	messages: Message[];
-	addMessage: (message: Partial<Message>) => void;
+	messages: MessageModel[];
+	addMessage: (message: Partial<MessageModel>) => void;
 	removeMessage: (id: number) => void;
 }
 
@@ -29,10 +29,10 @@ export const useMessage = (): MessageContextType => {
 export const MessageProvider: React.FC<MessageProviderProps> = ({
 	children,
 }) => {
-	const [messages, setMessages] = useState<Message[]>([]);
+	const [messages, setMessages] = useState<MessageModel[]>([]);
 
-	const addMessage = (message: Partial<Message>) => {
-		const newMessage: Message = {
+	const addMessage = (message: Partial<MessageModel>) => {
+		const newMessage: MessageModel = {
 			id: messages.length + 1,
 			text: message.text,
 			audioUri: message.audioUri,
