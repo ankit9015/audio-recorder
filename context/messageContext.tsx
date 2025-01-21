@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 export interface MessageModel {
-	id: number | undefined;
+	id: number;
 	text: string | undefined;
 	audioUri: string | undefined;
 }

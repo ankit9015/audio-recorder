@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { AudioProvider } from "@/context/audioContext";
 
 const App = () => {
 	const { messages, addMessage, removeMessage } = useMessage();
@@ -55,9 +56,11 @@ const App = () => {
 
 export default function Index() {
 	return (
-		<MessageProvider>
-			<App />
-		</MessageProvider>
+		<AudioProvider>
+			<MessageProvider>
+				<App />
+			</MessageProvider>
+		</AudioProvider>
 	);
 }
 
