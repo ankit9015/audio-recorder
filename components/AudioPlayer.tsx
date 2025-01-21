@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useAudio } from "@/context/audioContext";
 import { Audio } from "expo-av";
+import * as Progress from "react-native-progress";
 
 interface AudioPlayerProps {
 	audioUri: string;
@@ -132,6 +133,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioUri }) => {
 				<Text style={styles.progressText}>
 					{formatTime(position)} / {formatTime(duration)}
 				</Text>
+				<Progress.Bar
+					progress={duration ? position / duration : 0}
+					width={null}
+					height={4}
+					color="white"
+					unfilledColor="#444"
+					borderColor="transparent"
+				/>
 			</View>
 		</View>
 	);
@@ -153,11 +162,11 @@ const styles = StyleSheet.create({
 		height: 50,
 		justifyContent: "center",
 		marginRight: 10,
+		gap: 5,
 	},
 	progressText: {
 		color: "#fff",
 		fontSize: 12,
-		marginTop: 5,
 	},
 });
 
