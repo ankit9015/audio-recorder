@@ -68,14 +68,12 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		padding: 15,
+		gap: 10
 	},
 	headerTitle: {
 		color: "#000",
 		fontSize: 18,
 		fontWeight: "bold",
-		position: "absolute",
-		left: "50%",
-		transform: "translateX(-50%)",
 	},
 	chatArea: {
 		flex: 1,
